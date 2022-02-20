@@ -1,0 +1,7 @@
+1. After Sysncing from git these must be run to restore packages:
+    npm install --save-dev @angular-devkit/build-angular
+
+    or
+
+    npm i --only=dev
+    *npm install     //Works well
