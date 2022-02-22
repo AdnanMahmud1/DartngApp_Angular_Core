@@ -2,3 +2,4 @@
 	dotnet ef migrations add UserPasswordSecAdd --project "API"
 2. Update MIgration Command: 
 	dotnet ef database update --project "API"
+
