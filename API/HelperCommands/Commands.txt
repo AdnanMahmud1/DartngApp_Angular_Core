@@ -1,2 +1,12 @@
 ﻿1. Install Angular Guards:  ng g guard auth --skip-tests //select 1st: CanActivate
 2. Install Toaster: npm install ngx-toastr //Add references in angular.json then restart project
+3. Install "npm install Bootswatch" //Add references in angular.json then restart project
+
+
+
+
+
+
+Usefull Commands:
+1. Stop server " Ctrl + C "
+2. Create MOdule "ng g m shared --flat" --flat for not creating any folder
