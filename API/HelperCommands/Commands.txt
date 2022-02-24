@@ -10,3 +10,5 @@
 Usefull Commands:
 1. Stop server " Ctrl + C "
 2. Create MOdule "ng g m shared --flat" --flat for not creating any folder
+3. Create interceptprs "ng g interceptor --skip-tests"
+	When it asks for name type "Error"
