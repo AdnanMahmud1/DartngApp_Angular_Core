@@ -4,7 +4,8 @@
 
 
 
-
+For Glogally run dot net command:
+1. open command promt and run: dotnet tool install --global dotnet-ef
 
 
 Usefull Commands:

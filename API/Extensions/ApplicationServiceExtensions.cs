@@ -4,7 +4,7 @@ using API.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace API.Controllers.Extensions
+namespace API.Extensions
 {
     public static class ApplicationServiceExtensions
     {
