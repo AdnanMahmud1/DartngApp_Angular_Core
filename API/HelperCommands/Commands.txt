@@ -14,3 +14,9 @@ Usefull Commands:
 3. Create interceptprs "ng g interceptor --skip-tests"
 	When it asks for name type "Error"
 4. Create JWT intercerptor "ng g interceptor jwt --skip-tests"
+
+
+Usefull links:
+1. Angular Bootstrap: https://valor-software.com/ngx-bootstrap/#/
+2. ngx-gallery: https://www.npmjs.com/package/@kolkov/ngx-gallery
+	Command: "npm install @kolkov/ngx-gallery"
