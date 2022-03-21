@@ -22,3 +22,4 @@ Usefull links:
 2. ngx-gallery: https://www.npmjs.com/package/@kolkov/ngx-gallery
 	Command: "npm install @kolkov/ngx-gallery"
 3. NGX-Spinner: https://www.npmjs.com/package/ngx-spinner
+4. Photo_uploader: ng2-file-upload https://valor-software.com/ng2-file-upload/
