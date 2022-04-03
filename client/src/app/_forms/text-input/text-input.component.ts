@@ -23,9 +23,7 @@ export class TextInputComponent implements ControlValueAccessor {
   registerOnTouched(fn: any): void {
     
   }
-  setDisabledState?(isDisabled: boolean): void {
-    throw new Error('Method not implemented.');
-  }
+ 
 
 
 }
