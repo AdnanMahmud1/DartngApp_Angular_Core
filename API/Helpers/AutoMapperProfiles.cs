@@ -5,9 +5,9 @@ using AutoMapper;
 
 namespace API.Helpers
 {
-    public class AutoMaperProfiles : Profile
+    public class AutoMapperProfiles : Profile
     {
-        public AutoMaperProfiles()
+        public AutoMapperProfiles()
         {
             CreateMap<AppUser, MemberDto>()
                 .ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(
@@ -16,6 +16,13 @@ namespace API.Helpers
             CreateMap<Photo, PhotoDto>();
             CreateMap<MemberUpdateDto, AppUser>();
             CreateMap<RegisterDto, AppUser>();
+            CreateMap<Message, MessageDto>()
+                .ForMember(dest => dest.SenderPhotoUrl,
+                    opt => opt.MapFrom(src => 
+                        src.Sender.Photos.FirstOrDefault(x => x.IsMain).Url))
+                .ForMember(dest => dest.RecipientPhotoUrl,
+                    opt => opt.MapFrom(src => 
+                        src.Recipient.Photos.FirstOrDefault(x => x.IsMain).Url));
         }
     }
 }
