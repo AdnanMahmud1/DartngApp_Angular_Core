@@ -1,1 +1,39 @@
-<p>messages works!</p>
+
+
+<div class="row col-4">
+    <div class="btn-group" name='container'>
+        <button class="btn btn-primary" btnRadio="Unread" [(ngModel)]="container" 
+        (click)="loadMessages()"><i class="fa fa-envelope"></i> Unread</button>
+
+        <button class="btn btn-primary" btnRadio="Inbox" [(ngModel)]="container" 
+        (click)="loadMessages()"><i class="fa fa-envelope-open"></i> Inbox</button>
+
+        <button class="btn btn-primary" btnRadio="Outbox" [(ngModel)]="container" 
+        (click)="loadMessages()"><i class="fa fa-envelope-plane"></i> Outbox</button>
+    </div>
+</div>
+<div class="row" *ngIf="messages?.length === 0">
+    <h3>No Messages</h3>
+</div>
+
+<div class="row" *ngIf="messages?.length>0">
+    <table class="table table-hover" style="cursor: pointer">
+        <tr>
+            <th style="width: 40%;">Message</th>
+            <th style="width: 20%;">From / To</th>
+            <th style="width: 20%;">Sent / Receive</th>
+            <th style="width: 20%;"></th>
+        </tr>
+        <tr *ngFor="let message of messages" 
+        routerLink='{{container ==="Outbox" 
+        ? "/members/" + message.recipientUsername: "/members/"+ message.senderUsername}}'>
+        <td>{{message.content}}</td>
+        <td>
+            <div *ngIf="container ==='Outbox'">
+                <img  src ="{{message.recipientPhotoUrl || './assets/user.png'}}" 
+                alt="{{message.recipientUsername}}">
+            </div>
+        </td>
+    </tr>
+    </table>
+</div>
