@@ -11,9 +11,10 @@ import { Component, OnInit } from '@angular/core';
 export class MessagesComponent implements OnInit {
   messages:Message[] = [];
   pagination:Pagination;
-  container='Inbox';
+  container='Unread';
   pageNumber =1;
   pagesize=5;
+  loading=false;
   constructor(private messageService:MessageService) { }
 
   ngOnInit(): void {
@@ -21,9 +22,11 @@ export class MessagesComponent implements OnInit {
   }
 
   loadMessages(){
+    this.loading=true;
     this.messageService.getMessages(this.pageNumber, this.pagesize, this.container).subscribe(response =>{
       this.messages =response.result;
       this.pagination =response.pagination;
+      this.loading=false;
     })
   }
   pageChanged(event:any){
