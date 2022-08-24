@@ -3,3 +3,7 @@
 2. Update MIgration Command: 
 	dotnet ef database update --project "API"
 
+3. no input for delete migration
+	dotnet ef database drop
+4. Create database and seed data
+	dotnet watch run
