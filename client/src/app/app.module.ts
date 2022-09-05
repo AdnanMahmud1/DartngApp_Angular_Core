@@ -28,6 +28,9 @@ import { TextInputComponent } from './_forms/text-input/text-input.component';
 import { DateInputComponent } from './_forms/date-input/date-input.component';
 
 import { MemberMessagessecComponent } from './members/member-messagessec/member-messagessec.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { HasRoleDirective } from './_directives/has-role.directive';
+
 
 
 
@@ -50,8 +53,10 @@ import { MemberMessagessecComponent } from './members/member-messagessec/member-
     PhotoEditorComponent,
     TextInputComponent,
     DateInputComponent,
-
     MemberMessagessecComponent,
+    AdminPanelComponent,
+    HasRoleDirective,
+   
    
   ],
   imports: [
