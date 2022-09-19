@@ -1,6 +1,9 @@
-﻿1. Install Angular Guards:  ng g guard auth --skip-tests //select 1st: CanActivate
+﻿0. Install Angular: npm install -g @angular/cli@12
+1. Install Angular Guards:  ng g guard auth --skip-tests //select 1st: CanActivate
 2. Install Toaster: npm install ngx-toastr //Add references in angular.json then restart project
 3. Install "npm install Bootswatch" //Add references in angular.json then restart project
+4. Clean Node modules: rm -r node_modules
+5. Install Node modules: npm install --force
 
 
 
@@ -16,6 +19,7 @@ Usefull Commands:
 4. Create JWT intercerptor "ng g interceptor jwt --skip-tests"
 5. Guard Add:  " ng g guard prevent-unsaved-changes --skip-tests" Choose "can deactivate"
 6. Spinner Service: "ng g s service --skip--tests"
+7. Install SignalR in Angular: "npm install @microsoft/signalR"
 
 Usefull links:
 1. Angular Bootstrap: https://valor-software.com/ngx-bootstrap/#/
