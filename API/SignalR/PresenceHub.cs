@@ -1,7 +1,6 @@
 ﻿using API.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
-using SQLitePCL;
 
 namespace API.SignalR
 {
@@ -16,19 +15,22 @@ namespace API.SignalR
         }
         public override async Task OnConnectedAsync()
         {
-            await _tracker.UserConnected(Context.User.GetUsername(), Context.ConnectionId);
-            await Clients.Others.SendAsync("UserIsOnline", Context.User.GetUsername());
+            var isOnline= await _tracker.UserConnected(Context.User.GetUsername(), Context.ConnectionId);
+            if(isOnline)
+                await Clients.Others.SendAsync("UserIsOnline", Context.User.GetUsername());
+            
             var currentUsers = await _tracker.GetOnlineUsers();
-            await Clients.All.SendAsync("GetOnlineUsers", currentUsers);
+            await Clients.Caller.SendAsync("GetOnlineUsers", currentUsers);
         }
 
         public override async Task OnDisconnectedAsync(Exception exception)
         {
-            await _tracker.UserDisconnected(Context.User.GetUsername(), Context.ConnectionId);
-            await Clients.Others.SendAsync("UserIsOffline", Context.User.GetUsername());
+            var isOffline = await _tracker.UserDisconnected(Context.User.GetUsername(), Context.ConnectionId);
+            if(isOffline)
+                await Clients.Others.SendAsync("UserIsOffline", Context.User.GetUsername());
 
-            var currentUsers = await _tracker.GetOnlineUsers();
-            await Clients.All.SendAsync("GetOnlineUsers", currentUsers);
+            //var currentUsers = await _tracker.GetOnlineUsers();
+            //await Clients.All.SendAsync("GetOnlineUsers", currentUsers);
 
             await base.OnDisconnectedAsync(exception);
         }
