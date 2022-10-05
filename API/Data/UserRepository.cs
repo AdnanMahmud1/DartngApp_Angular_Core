@@ -71,20 +71,23 @@ namespace API.Data
                 userParams.PageNumber, userParams.PageSize);
 
         }
+
+        public async Task<MemberDto> GetMemberAsync(string username, bool isCurrentUser)
+        {
+            var query=   _context.Users
+                .Where(x => x.UserName == username)
+                .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
+                .AsQueryable();
+            if (isCurrentUser) query = query.IgnoreQueryFilters();
+            return await query.FirstOrDefaultAsync();
+        }
         //public async Task<IEnumerable<MemberDto>> GetMembersAsync()
         //{
         //    return await _context.Users
         //           .ProjectTo<MemberDto>(_mapper.ConfigurationProvider).ToListAsync();
 
         //}
-
-        public async Task<MemberDto> GetMemberAsync(string username)
-        {
-            return await _context.Users
-                 .Where(x => x.UserName == username)
-                 .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
-                 .SingleOrDefaultAsync();
-        }
+        
 
         public async Task<string> GetUserGender(string username)
         {
