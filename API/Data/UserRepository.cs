@@ -96,5 +96,13 @@ namespace API.Data
                 .Select(x=>x.Gender)
                 .FirstOrDefaultAsync();
         }
+        public async Task<AppUser> GetUserByPhotoId(int photoId)
+        {
+            return await _context.Users
+                .Include(p => p.Photos)
+                .IgnoreQueryFilters()
+                .Where(p => p.Photos.Any(p => p.Id == photoId))
+                .FirstOrDefaultAsync();
+        }
     }
 }
