@@ -22,7 +22,10 @@ Usefull Commands:
 7. Install SignalR in Angular: "npm install @microsoft/signalR"
 8. Docker:
 	a. Postgres SQL image with credential
+
 	docker run --name dev -e POSTGRES_USER=appuser -e POSTGRES_PASSWORD=Pa$$w0rd -p 5432:5432 -d postgres:latest
+
+	problem: Enable virtualiazation from bios and run this command: "bcdedit /set hypervisorlaunchtype auto"
 
 Usefull links:
 1. Angular Bootstrap: https://valor-software.com/ngx-bootstrap/#/
