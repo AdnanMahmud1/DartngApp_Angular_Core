@@ -40,3 +40,11 @@ Usefull links:
 	Command: "npm install @kolkov/ngx-gallery"
 3. NGX-Spinner: https://www.npmjs.com/package/ngx-spinner
 4. Photo_uploader: ng2-file-upload https://valor-software.com/ng2-file-upload/
+
+
+Heroku config for production:
+
+=> heroku config:set ASPNETCORE_ENVIRONMENT=Production
+=> heroku git:remote -a datingapp-per
+=> git push heroku master
+=> heroku config:set TokenKey=woglQfGyeEwfxOonqsMInP
