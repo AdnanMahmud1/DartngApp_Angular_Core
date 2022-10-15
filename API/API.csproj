@@ -6,9 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-	<Target Name="PrePublishTarget" AfterTargets="Publish">
+	<!--<Target Name="PrePublishTarget" AfterTargets="Publish">
 		<Exec Command="dotnet ef database update" />
-	</Target>
+	</Target>-->
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="CloudinaryDotNet" Version="1.17.0" />
