@@ -52,7 +52,7 @@ Heroku config for production:
 Heroku buildpack update:
 1. heroku buildpacks:clear (optional)
 2. heroku buildpacks:set jincod/dotnetcore
-3. add in .csproj
+3. add in .csproj (not needed)
 	<Target Name="PrePublishTarget" AfterTargets="Publish">
 		<Exec Command="dotnet ef database update" />
 	</Target>
