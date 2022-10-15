@@ -48,3 +48,11 @@ Heroku config for production:
 => heroku git:remote -a datingapp-per
 => git push heroku master
 => heroku config:set TokenKey=woglQfGyeEwfxOonqsMInP
+
+Heroku buildpack update:
+1. heroku buildpacks:clear (optional)
+2. heroku buildpacks:set jincod/dotnetcore
+3. add in .csproj
+	<Target Name="PrePublishTarget" AfterTargets="Publish">
+		<Exec Command="dotnet ef database update" />
+	</Target>
