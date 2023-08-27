@@ -20,6 +20,19 @@ Usefull Commands:
 5. Guard Add:  " ng g guard prevent-unsaved-changes --skip-tests" Choose "can deactivate"
 6. Spinner Service: "ng g s service --skip--tests"
 7. Install SignalR in Angular: "npm install @microsoft/signalR"
+8. Docker:
+	a. Postgres SQL image with credential
+
+	docker run --name dev -e POSTGRES_USER=appuser -e POSTGRES_PASSWORD=Pa$$w0rd -p 5432:5432 -d postgres:latest
+
+
+	problem: 1.Enable virtualiazation from bios and run this command: "bcdedit /set hypervisorlaunchtype auto"
+			 2. Daemon not running and solution is: "C:\Program Files\Docker\Docker\DockerCli.exe" -SwitchDaemon
+													net stop com.docker.service
+													net start com.docker.service
+
+	Help: https://stackoverflow.com/questions/70056064/no-server-pgadmin4
+	https://towardsdatascience.com/how-to-run-postgresql-and-pgadmin-using-docker-3a6a8ae918b5
 
 Usefull links:
 1. Angular Bootstrap: https://valor-software.com/ngx-bootstrap/#/
@@ -27,3 +40,19 @@ Usefull links:
 	Command: "npm install @kolkov/ngx-gallery"
 3. NGX-Spinner: https://www.npmjs.com/package/ngx-spinner
 4. Photo_uploader: ng2-file-upload https://valor-software.com/ng2-file-upload/
+
+
+Heroku config for production:
+
+=> heroku config:set ASPNETCORE_ENVIRONMENT=Production
+=> heroku git:remote -a datingapp-per
+=> git push heroku master
+=> heroku config:set TokenKey=woglQfGyeEwfxOonqsMInP
+
+Heroku buildpack update:
+1. heroku buildpacks:clear (optional)
+2. heroku buildpacks:set jincod/dotnetcore
+3. add in .csproj (not needed)
+	<Target Name="PrePublishTarget" AfterTargets="Publish">
+		<Exec Command="dotnet ef database update" />
+	</Target>

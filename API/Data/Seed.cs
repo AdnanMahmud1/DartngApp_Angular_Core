@@ -25,8 +25,9 @@ namespace API.Data
             {
                 await roleManager.CreateAsync(role);
             }
-            foreach (var user in users) 
+            foreach (var user in users)
             {
+                user.Photos.First().IsApproved = true;
                 user.UserName =user.UserName.ToLower();
                 await userManager.CreateAsync(user, "Pa$$w0rd");
                 await userManager.AddToRoleAsync(user, "Member");
@@ -36,7 +37,7 @@ namespace API.Data
             {
                 UserName = "admin"
             };
-
+            
             await userManager.CreateAsync(admin, "Pa$$w0rd");
             await userManager.AddToRolesAsync(admin, new[] { "Admin", "Moderator" });
         }

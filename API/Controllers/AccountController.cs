@@ -13,7 +13,6 @@ using Microsoft.AspNetCore.Identity;
 
 namespace API.Controllers
 {
-
     public class AccountController : BaseApiController
     {
 
